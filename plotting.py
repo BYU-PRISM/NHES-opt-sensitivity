@@ -11,15 +11,15 @@ import numpy as np
 
 # Map the programming names to the math/presentation names
 label_map = {
-    'smr_size': r'$N_{SMR}$', 
+    'smr_size': r'$N_{SMR}$',
     'tes_size': r'$N_{TES}$',
     'turb_size': r'$N_{turb}',
     'LCOE': 'LCOE',
-    'smr_min_cap': r'$N_{SMR, min}$', 
-    'tes_eff': r'$\eta_{TES}$', 
-    'turb_eff': r'$\eta_{turb}$', 
-    'smr_ramp_up': r'$r_{up}$', 
-    'smr_ramp_down': r'$r_{down}$', 
+    'smr_min_cap': r'$N_{SMR, min}$',
+    'tes_eff': r'$\eta_{TES}$',
+    'turb_eff': r'$\eta_{turb}$',
+    'smr_ramp_up': r'$r_{up}$',
+    'smr_ramp_down': r'$r_{down}$',
     'dcost_smr': r'$D_{cost, SMR}$',
     'dcost_tes': r'$D_{cost, TES}$',
     'smr_cap_cost': r'$C_{cap, SMR}$',
@@ -79,7 +79,7 @@ def plot_sensitivities(df, limited=0, show_all=True, **kwargs):
 
     if limited == 2:
         sigs = ['dtes_size_dtes_eff', 'dLCOE_dturb_eff', 'dtes_size_dturb_eff', 'dsmr_size_dturb_eff', 'dLCOE_dsmr_cap_cost', 'dLCOE_dsmr_var_cost']
-        sig_labels = [r'$\frac{d\ N_{TES}}{d\ \eta_{TES}}$', 
+        sig_labels = [r'$\frac{d\ N_{TES}}{d\ \eta_{TES}}$',
                 r'$\frac{d\ LCOE}{d\ \eta_{turb}}$',
                 r'$\frac{d\ N_{TES}}{d\ \eta_{turb}}$',
                 r'$\frac{d\ N_{SMR}}{d\ \eta_{turb}}$',
@@ -95,12 +95,12 @@ def plot_sensitivities(df, limited=0, show_all=True, **kwargs):
     if limited == 3:
         sigs1 = ['dtes_size_dtes_eff', 'dLCOE_dturb_eff', 'dtes_size_dturb_eff', 'dsmr_size_dturb_eff', 'dLCOE_dsmr_cap_cost']
         sigs2 = ['dLCOE_dsmr_var_cost', 'dLCOE_dturb_var_cost', 'dLCOE_dtes_eff', 'dsmr_size_dtes_eff', 'dLCOE_dtes_cap_cost', 'dLCOE_dturb_cap_cost']
-        sig_labels1 = [r'$\frac{d\ N_{TES}}{d\ \eta_{TES}}$', 
+        sig_labels1 = [r'$\frac{d\ N_{TES}}{d\ \eta_{TES}}$',
                 r'$\frac{d\ LCOE}{d\ \eta_{turb}}$',
                 r'$\frac{d\ N_{TES}}{d\ \eta_{turb}}$',
                 r'$\frac{d\ N_{SMR}}{d\ \eta_{turb}}$',
                 r'$\frac{d\ LCOE}{d\ C_{cap, SMR}}$']
-        sig_labels2 = [r'$\frac{d\ LCOE}{d\ C_{var, SMR}}$', 
+        sig_labels2 = [r'$\frac{d\ LCOE}{d\ C_{var, SMR}}$',
                 r'$\frac{d\ LCOE}{d\ C_{var, turb}}$',
                 r'$\frac{d\ LCOE}{d\ \eta_{TES}}$',
                 r'$\frac{d\ N_{SMR}}{d\ \eta_{TES}}$',
@@ -128,19 +128,19 @@ def plot_sensitivities(df, limited=0, show_all=True, **kwargs):
             plt.subplot(1, nplots, 3)
             ax3 = s3.boxplot(**kwargs)
             plt.setp(ax3.get_xticklabels(), ha='right', rotation=45)
-        
+
         plt.show()
         return
 
     if limited == 4:
         sigs = ['dtes_size_dtes_eff', 'dtes_size_dturb_eff', 'dsmr_size_dturb_eff', 'dLCOE_dturb_eff', 'dLCOE_dsmr_cap_cost', 'dsmr_size_dtes_eff', 'dLCOE_dsmr_var_cost', 'dLCOE_dtes_eff', 'dLCOE_dtes_cap_cost', 'dLCOE_dturb_cap_cost', 'dLCOE_dturb_var_cost']
-        sig_labels = [r'$\frac{d\ N_{TES}}{d\ \eta_{TES}}$', 
+        sig_labels = [r'$\frac{d\ N_{TES}}{d\ \eta_{TES}}$',
                 r'$\frac{d\ N_{TES}}{d\ \eta_{turb}}$',
                 r'$\frac{d\ N_{SMR}}{d\ \eta_{turb}}$',
                 r'$\frac{d\ LCOE}{d\ \eta_{turb}}$',
                 r'$\frac{d\ LCOE}{d\ C_{cap, SMR}}$',
                 r'$\frac{d\ N_{SMR}}{d\ \eta_{TES}}$',
-                r'$\frac{d\ LCOE}{d\ C_{var, SMR}}$', 
+                r'$\frac{d\ LCOE}{d\ C_{var, SMR}}$',
                 r'$\frac{d\ LCOE}{d\ \eta_{TES}}$',
                 r'$\frac{d\ LCOE}{d\ C_{cap, TES}}$',
                 r'$\frac{d\ LCOE}{d\ C_{cap, turb}}$',
@@ -185,7 +185,7 @@ def plot_correlations(df):
     io_cols = ['smr_min_cap', 'tes_eff', 'turb_eff', 'smr_ramp_up', 'smr_ramp_down',
         'dcost_smr', 'dcost_tes', 'smr_cap_cost', 'smr_fix_cost',
         'smr_var_cost', 'tes_cap_cost', 'tes_fix_cost', 'tes_var_cost',
-        'turb_cap_cost', 'turb_fix_cost', 'turb_var_cost', #'kwargs', 
+        'turb_cap_cost', 'turb_fix_cost', 'turb_var_cost', #'kwargs',
         'smr_size', 'tes_size', 'turb_size', 'LCOE']
     if 'params' in df.columns:
         # This indicates that the params need to unpacked into the top level
@@ -202,9 +202,9 @@ def plot_correlations(df):
 
     ylabels = [label_map[l] for l in cdata.index]
     #ylabels=[r'$N_{SMR}$', r'$N_{TES}$', 'LCOE']
-    #xlabels=[r'$N_{SMR, min}$', r'$\eta_{TES}$', r'$\eta_{turb}$', r'$r_{up}$', r'$r_{down}$', 
+    #xlabels=[r'$N_{SMR, min}$', r'$\eta_{TES}$', r'$\eta_{turb}$', r'$r_{up}$', r'$r_{down}$',
     xlabels = [label_map[l] for l in cdata.columns]
- 
+
     heatmap = sns.heatmap(cdata.round(2), xticklabels=xlabels, yticklabels=ylabels, cmap='viridis', annot=True, annot_kws={"size": 8})
     plt.setp(heatmap.get_yticklabels(), ha='right', rotation=0)
     plt.setp(heatmap.get_xticklabels(), ha='right', rotation=30)
@@ -231,7 +231,7 @@ def plot_distributions(df):
     plt.show()
 
 def plot_tsvar(d_load, d_wind, d_solar):
-    '''Plot the output distributions resulting from an analysis of time series variance''' 
+    '''Plot the output distributions resulting from an analysis of time series variance'''
     plt.subplot(2, 2, 1)
     plt.hist(d_load.LCOE, histtype='step', label='Load')
     plt.hist(d_wind.LCOE, histtype='step', label='Wind')
@@ -263,9 +263,9 @@ def plot_tsvar(d_load, d_wind, d_solar):
     plt.show()
 
 def plot_tsvar_final():
-    dload = pd.read_pickle('tsvar_load495_1000.pkl')
-    dwind = pd.read_pickle('tsvar_wind495_1000.pkl')
-    dsolar = pd.read_pickle('tsvar_solar495_1000.pkl')
+    dload = pd.read_pickle('data/tsvar_load495hours_1000samples_trimmed.pkl')
+    dwind = pd.read_pickle('data/tsvar_wind495hours_1000samples_trimmed.pkl')
+    dsolar = pd.read_pickle('data/tsvar_solar495hours_1000samples_trimmed.pkl')
 
     # Generate the KDEs
     kde_load_lcoe = gaussian_kde(dload['LCOE'].dropna())
@@ -335,8 +335,8 @@ def plot_tsvar_final():
 
     plt.show()
 
-def plot_tsvar_all_final(d_file='tsvar_all5000.pkl' ):
-    d = pd.read_pickle(d_file)
+def plot_tsvar_all_final(data_file='data/tsvar_all495hours_10000samples_trimmed.pkl'):
+    d = pd.read_pickle(data_file)
 
     kde_lcoe= gaussian_kde(d.LCOE.dropna())
     kde_tes = gaussian_kde(d.tes_size.dropna())
@@ -357,7 +357,7 @@ def plot_tsvar_all_final(d_file='tsvar_all5000.pkl' ):
     plt.plot(xtes, kde_tes(xtes))
     plt.xlabel('TES Size (MWₕₜₕ)')
     plt.xticks([5000, 12000])
-    
+
     plt.subplot(1, 4, 3)
     plt.plot(xsmr, kde_smr(xsmr))
     plt.xlabel('SMR Size (MWₜₕ)')
@@ -375,7 +375,7 @@ def final_plot_lhs_dist():
 
     df_120hrs = pd.read_csv('lhs20000_v26.csv')
     df_360hrs = pd.read_csv('lhs10000_360hrs.csv')
-    
+
     p0 = plt.subplot(1, 3, 1)
     plt.ylabel('Approx. Probability Density Function')
     df_120hrs.LCOE.hist(histtype='step', density=True, bins='scott')
@@ -397,18 +397,18 @@ def final_plot_lhs_dist():
     df_120hrs.smr_size.hist(histtype='step', density=True, bins='scott', label='120 hr dispatch')
     df_360hrs.smr_size.hist(histtype='step', density=True, bins='scott', label='360 hr dispatch')
     plt.xlabel('SMR size (MWth)')
-    
+
     plt.legend()
     plt.show()
 
-def plot_lenvar(data_file='lenvar_full_200.csv'):
+def plot_lenvar(data_file='lenvar_full_500samples_trimmed.pkl'):
     nhrs = [60, 120, 200, 250, 300, 350, 400, 600, 750, 845, 917, 990, 1062, 1134, 1206, 1254, 1345, 1393, 1405, 1410]
     tes = [1645.44284, 1645.44284, 1810.29844, 6819.18, 13152, 13683, 13683.948595, 13683.948595, 13683.948596, 13683.948596, 13683.948596, 16968.249831, 18407.877931, 18407.877931, 18407.877931, 18407.877931, 18407.877931, 18407.877931, 18407.877931, 18407.877931]
     smr = [873.302466, 873.302466, 873.302466, 873.302, 873.302, 873.302, 873.302466, 873.302466, 873.30246598, 873.30246598, 873.30246598, 873.30246597, 873.30246598, 873.30246598, 873.30246598, 873.30246598, 873.30246598, 873.30246598, 873.30246598, 873.30246598]
     turb = [393.708709, 401.059414, 401.059414, 433.551, 433.551, 433.551, 433.551536, 437.167193, 518.03708793, 518.03708793, 518.03708793, 544.17739485, 544.17739485, 544.17739485, 544.17739485, 544.17739485, 544.17739485, 547.05645945, 547.05645945, 547.05645945]
     lcoe = [64.496811, 63.015237, 63.517664, 64.7385, 66.669, 67.446, 67.761032, 67.85356, 66.967171092, 66.441484409, 66.138844198, 66.499294987, 66.782094387, 66.589946927, 66.533659873, 66.50513466, 66.403750474, 66.326018583, 66.273331911, 66.143181481]
 
-    d = pd.read_csv(data_file)
+    d = pd.read_pickle(data_file)
 
     vlcoe = []
     vtes = []
@@ -438,15 +438,15 @@ def plot_lenvar(data_file='lenvar_full_200.csv'):
     ax1.plot(nhrs, tes)
     ax1.violinplot(vtes, positions=vn, widths=50)
     ax1.set_ylabel(r'$N_{TES}$ (MWhth)')
-    
+
     ax2.plot(nhrs, smr)
     ax2.violinplot(vsmr, positions=vn, widths=50)
     ax2.set_ylabel(r'$N_{SMR}$ (MWth)')
-    
+
     ax3.plot(nhrs, turb)
     #ax3.violinplot(vturb, positions=vn, widths=50)
     ax3.set_ylabel(r'$N_{turb}$ (MWe)')
-    
+
     ax4.plot(nhrs, lcoe)
     ax4.violinplot(vlcoe, positions=vn, widths=50)
     ax4.set_xlabel('Dispatch Length (hrs)')
@@ -455,23 +455,22 @@ def plot_lenvar(data_file='lenvar_full_200.csv'):
     plt.show()
 
 
-def plot_bins():
-    ''' A quick test of the different methods of auto-binning for histograms'''
-    d = pd.read_csv('lenvar_full_100.csv')
-    d60 = d[d.length == 60] # Note: These methods seemed to get overwhelmed by too much data, so I had to trim it...
-    thing = d60.LCOE
-
+def plot_bins(df):
+    ''' A quick test of the different methods of auto-binning for histograms
+    based on a Pandas DataFrame.
+    Note: These methods seem to get overwhelmed by too much data, so trimming may be necessary
+    '''
     supported_methods = ['auto', 'fd', 'doane', 'scott', 'stone', 'rice', 'sturges', 'sqrt']
 
     for i, method in enumerate(supported_methods):
         plt.subplot(3, 3, i+1)
-        plt.hist(thing, bins=method)
+        plt.hist(df, bins=method)
         plt.title(method)
 
     plt.show()
 
 def plot_distribution_final():
-    d500 = pd.read_csv('lhs20000_long.csv')
+    d500 = pd.read_pickle('data/LHS_20000samples_495hours_trimmed.pkl')
     d360 = pd.read_csv('lhs20000_v26.csv')
 
     d500_lcoes = d500['LCOE'].dropna()
@@ -491,7 +490,7 @@ def plot_distribution_final():
 
     d360_smr = d360['smr_size'].dropna()
     kde_360_smr = gaussian_kde(d360_smr)
-   
+
     # Find the ranges to plot over
     lcoe_range = np.linspace(min(min(d360_lcoes), min(d500_lcoes)), max(max(d360_lcoes), max(d500_lcoes)), 100)
     tes_range = np.linspace(min(min(d360_tes), min(d500_tes)), max(max(d360_tes), max(d500_tes)), 100)
@@ -504,7 +503,7 @@ def plot_distribution_final():
     plt.plot(np.median(d500_lcoes), 0, '^', color=c2)
     plt.ylabel('Probability Density Funtion')
     plt.xlabel('LCOE (USD/MWₕₑ)')
-    
+
     print('LCOE:', np.median(d360_lcoes) - np.median(d500_lcoes))
     print('TES: ', np.median(d360_tes) - np.median(d500_tes))
     print('SMR: ', np.median(d360_smr) - np.median(d500_smr))
@@ -518,7 +517,7 @@ def plot_distribution_final():
     xticks = np.arange(2000, 15000, 10000)
     ax2.set_xticks(xticks)
     plt.xlabel(r'$N_{TES}$ (MWhₜₕ)')
-    plt.legend(['360 h', '500 h'], loc='upper right')
+    plt.legend(['360 h', '495 h'], loc='upper right')
 
     plt.subplot(1, 3, 3)
     plt.plot(smr_range, kde_360_smr(smr_range))
@@ -530,14 +529,15 @@ def plot_distribution_final():
     plt.show()
 
 def plot_compare():
-    tsvar_data = pd.read_pickle('tsvar_all495_10000.pkl')
-    param_data = pd.read_pickle('lhs_20000_495.pkl')
+    '''Compares the effect of the three sources of uncertainty'''
+    tsvar_data = pd.read_pickle('data/tsvar_all495hours_10000samples_trimmed.pkl')
+    param_data = pd.read_pickle('data/LHS_20000samples_495hours_trimmed.pkl')
     nhrs = [60, 120, 200, 250, 300, 350, 400, 600, 750, 845, 917, 990, 1062, 1134, 1206, 1254, 1345, 1393, 1405, 1410]
     lenvar_tes = [1645.44284, 1645.44284, 1810.29844, 6819.18, 13152, 13683, 13683.948595, 13683.948595, 13683.948596, 13683.948596, 13683.948596, 16968.249831, 18407.877931, 18407.877931, 18407.877931, 18407.877931, 18407.877931, 18407.877931, 18407.877931, 18407.877931]
     lenvar_smr = [873.302466, 873.302466, 873.302466, 873.302, 873.302, 873.302, 873.302466, 873.302466, 873.30246598, 873.30246598, 873.30246598, 873.30246597, 873.30246598, 873.30246598, 873.30246598, 873.30246598, 873.30246598, 873.30246598, 873.30246598, 873.30246598]
     lenvar_turb = [393.708709, 401.059414, 401.059414, 433.551, 433.551, 433.551, 433.551536, 437.167193, 518.03708793, 518.03708793, 518.03708793, 544.17739485, 544.17739485, 544.17739485, 544.17739485, 544.17739485, 544.17739485, 547.05645945, 547.05645945, 547.05645945]
     lenvar_lcoe = [64.496811, 63.015237, 63.517664, 64.7385, 66.669, 67.446, 67.761032, 67.85356, 66.967171092, 66.441484409, 66.138844198, 66.499294987, 66.782094387, 66.589946927, 66.533659873, 66.50513466, 66.403750474, 66.326018583, 66.273331911, 66.143181481]
-    
+
     lcoe = [param_data.LCOE.dropna(), lenvar_lcoe, tsvar_data.LCOE.dropna()]
     smr = [param_data.smr_size.dropna(), lenvar_smr, tsvar_data.smr_size.dropna()]
     tes = [param_data.tes_size.dropna(), lenvar_tes, tsvar_data.tes_size.dropna()]
@@ -552,17 +552,17 @@ def plot_compare():
     plt.ylabel('LCOE')
 
     ax2 = plt.subplot(1, 4, 2)
-    plt.violinplot(smr)
-    plt.xticks([1, 2, 3], xticks)
-    plt.setp(ax2.get_xticklabels(), ha='right', rotation=20)
-    plt.ylabel(r'$N_{SMR}$ (MWₜₕ)')
-    
-    ax3 = plt.subplot(1, 4, 3)
     plt.violinplot(tes)
     plt.xticks([1, 2, 3], xticks)
-    plt.setp(ax3.get_xticklabels(), ha='right', rotation=20)
+    plt.setp(ax2.get_xticklabels(), ha='right', rotation=20)
     plt.ylabel(r'$N_{TES}$ (MWhₜₕ)')
-    
+
+    ax3 = plt.subplot(1, 4, 3)
+    plt.violinplot(smr)
+    plt.xticks([1, 2, 3], xticks)
+    plt.setp(ax3.get_xticklabels(), ha='right', rotation=20)
+    plt.ylabel(r'$N_{SMR}$ (MWₜₕ)')
+
     ax4 = plt.subplot(1, 4, 4)
     plt.violinplot(turb)
     plt.xticks([1, 2, 3], xticks)

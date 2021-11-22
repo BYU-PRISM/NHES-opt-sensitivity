@@ -1,5 +1,5 @@
 # NHES-opt-sensitivity
-This project is focused on the optimization of nuclear hybrid energy systems (NHES). The following code is used to run an NHES dispatcher and perform a sensitivity analysis of the system variables.  The dispatcher, code, and data were used in a study titled "Sensitivity analysis and uncertainty quantification of combined design and dispatch optimization for a nuclear hybrid energy system" which can be found here: _____________. 
+This project is focused on the optimization of nuclear hybrid energy systems (NHES). The following code is used to run an NHES dispatcher and perform a sensitivity analysis of the system variables.  The dispatcher, code, and data were used in a study titled "Sensitivity analysis and uncertainty quantification of combined design and dispatch optimization for a nuclear hybrid energy system" which can be found here: https://doi.org/10.6084/m9.figshare.c.5711801.v1 
 
 The code for the dispatcher can be found under the "simple_nhes.py" file.  
 
